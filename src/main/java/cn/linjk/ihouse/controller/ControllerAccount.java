@@ -1,5 +1,6 @@
 package cn.linjk.ihouse.controller;
 
+import cn.linjk.ihouse.model.ModelLogin;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -15,7 +16,9 @@ public class ControllerAccount {
     @RequestMapping(value = "login", method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseBody
-    public String login(@RequestParam String account, @RequestParam String pwd) {
+    public String login(@RequestBody ModelLogin modelLogin) {
+        System.out.println("account is: " + modelLogin.getAccount());
+        System.out.println("pwd is: " + modelLogin.getPwd());
         // Todo: 登录验证处理...
 
         return "Test Login";
